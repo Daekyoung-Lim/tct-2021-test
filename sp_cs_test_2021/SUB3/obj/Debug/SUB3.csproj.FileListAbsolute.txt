@@ -1,0 +1,11 @@
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\obj\Debug\SUB3.csproj.AssemblyReference.cache
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\obj\Debug\SUB3.csproj.SuggestedBindingRedirects.cache
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\obj\Debug\SUB3.csproj.CoreCompileInputs.cache
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\obj\Debug\SUB3.csproj.CopyComplete
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\SP_TEST.exe.config
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\obj\Debug\SP_TEST.exe
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\obj\Debug\SP_TEST.pdb
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\SP_TEST.exe
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\SP_TEST.pdb
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\Newtonsoft.Json.dll
+D:\Document\TCT\2021\sp_cs_test_2021\SUB3\Newtonsoft.Json.xml
