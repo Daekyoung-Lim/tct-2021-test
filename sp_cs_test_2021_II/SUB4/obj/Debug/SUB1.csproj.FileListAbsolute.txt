@@ -1,0 +1,6 @@
+C:\ssp_workspace\ssp_cs_test\SUB1\bin\Debug\SUB1.exe.config
+C:\ssp_workspace\ssp_cs_test\SUB1\bin\Debug\SUB1.exe
+C:\ssp_workspace\ssp_cs_test\SUB1\bin\Debug\SUB1.pdb
+C:\ssp_workspace\ssp_cs_test\SUB1\obj\Debug\SUB1.csprojResolveAssemblyReference.cache
+C:\ssp_workspace\ssp_cs_test\SUB1\obj\Debug\SUB1.exe
+C:\ssp_workspace\ssp_cs_test\SUB1\obj\Debug\SUB1.pdb

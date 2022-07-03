@@ -1,0 +1,10 @@
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\obj\Debug\SUB2.csproj.AssemblyReference.cache
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\obj\Debug\SUB2.csproj.CoreCompileInputs.cache
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\obj\Debug\SUB2.csproj.CopyComplete
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\SP_TEST.exe.config
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\obj\Debug\SP_TEST.exe
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\obj\Debug\SP_TEST.pdb
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\SP_TEST.exe
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\SP_TEST.pdb
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\Newtonsoft.Json.dll
+D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB2\Newtonsoft.Json.xml
