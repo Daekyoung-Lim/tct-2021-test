@@ -63,7 +63,8 @@ namespace SP_TEST
                     case "RECEIVE":
                         queName = words[2];
                         que = msgSvc.findQueue(queName);
-                        msg = que.Dequeue();
+                        //msg = que.Dequeue();
+                        msg = que.DequeueWithWaitTime(context);
                         if (msg != null)
                         {
                             resJson["Result"] = "Ok";

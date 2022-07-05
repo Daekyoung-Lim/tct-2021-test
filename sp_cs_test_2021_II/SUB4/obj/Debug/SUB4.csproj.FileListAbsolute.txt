@@ -7,3 +7,13 @@ D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB4\SP_TEST.exe
 D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB4\SP_TEST.pdb
 D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB4\Newtonsoft.Json.dll
 D:\Document\TCT\Github\tct-2021-test\sp_cs_test_2021_II\SUB4\Newtonsoft.Json.xml
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\obj\Debug\SUB4.csproj.CoreCompileInputs.cache
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\obj\Debug\SUB4.csproj.CopyComplete
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\SP_TEST.exe.config
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\obj\Debug\SP_TEST.exe
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\obj\Debug\SP_TEST.pdb
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\SP_TEST.exe
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\SP_TEST.pdb
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\Newtonsoft.Json.dll
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\Newtonsoft.Json.xml
+D:\TCT\2022\LearningPlus\2021\github\tct-2021-test\sp_cs_test_2021_II\SUB4\obj\Debug\SUB4.csproj.AssemblyReference.cache

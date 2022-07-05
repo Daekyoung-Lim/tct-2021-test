@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Timers;
 
@@ -87,6 +88,7 @@ namespace SP_TEST
     class CustomQueue
     {
         List<Message> mListMsg;
+        static System.Threading.Mutex muListMsg = new System.Threading.Mutex();
         int mQueueLength;
         private String mQueName;
         private int mAccCount;
@@ -95,6 +97,7 @@ namespace SP_TEST
         private int mWaitTime;
 
         List<Message> mListMsgDlq;
+        List<HttpListenerContext> listHttpContext;
 
         public CustomQueue(String name, int maxLen, int procTimeOut, int maxFailCnt, int waitTime)
         {
@@ -107,6 +110,7 @@ namespace SP_TEST
             this.mWaitTime = waitTime;
 
             mListMsgDlq = new List<Message>();
+            listHttpContext = new List<HttpListenerContext>();
         }
 
         public bool Enqueue(String message)
@@ -115,7 +119,12 @@ namespace SP_TEST
 
             if (mListMsg.Count < this.mQueueLength)
             {
+                muListMsg.WaitOne();
+
                 mListMsg.Add(CreateMsg(message));
+
+                muListMsg.ReleaseMutex();
+
                 ret = true;
             } else
             {
@@ -147,9 +156,100 @@ namespace SP_TEST
             return msg;
         }
 
+        private int CheckReadyCondition(HttpListenerContext httpContext)
+        {
+            //return false if available mesaage exist
+            if ((mListMsg.Count > 0) && 
+                (mListMsg.Find(x => x.GetFlagAvail() == true) != null) &&
+                (listHttpContext.IndexOf(httpContext) == 0))
+            {
+                //Console.WriteLine("[CheckWaitCondition]: Ready");
+                return 1;
+            } else if ((mListMsgDlq.Count > 0) && 
+                (mListMsgDlq.Find(x => x.GetFlagAvail() == true) != null) &&
+                (listHttpContext.IndexOf(httpContext) == 0))
+            {
+                return 2;
+            } else
+            {
+                //Console.WriteLine("[CheckWaitCondition]: Not ready");
+                return 0;
+            }
+        }
+
+        /*
+        private int CheckReadyCondition(HttpListenerContext httpContext)
+        {
+            //return false if available mesaage exist
+            if ((mListMsg.Count > 0) &&
+                (mListMsg.Find(x => x.GetFlagAvail() == true) != null) &&
+                (listHttpContext.IndexOf(httpContext) == 0))
+            {
+                //Console.WriteLine("[CheckWaitCondition]: Ready");
+                return 1;
+            }
+            else
+            {
+                //Console.WriteLine("[CheckWaitCondition]: Not ready");
+                return 0;
+            }
+        }
+        */
+
+        public Message DequeueWithWaitTime(HttpListenerContext httpContext)
+        {
+            if ((mWaitTime != 0) &&
+                (mListMsg.Find(x => x.GetFlagAvail() == true) == null))
+            {
+                listHttpContext.Add(httpContext);
+                int ret = 0;
+                int startTick = Environment.TickCount;
+
+                Console.WriteLine();
+                Console.WriteLine("[startTick]:{0}", startTick);
+                Console.WriteLine("[Environment.TickCount]:{0}", Environment.TickCount);
+                Console.WriteLine("[TickCount - startTick]:{0}", Environment.TickCount - startTick);
+                Console.WriteLine("[mWaitTime * 1000]:{0}", mWaitTime * 1000);
+
+                while (((Environment.TickCount - startTick) < (mWaitTime * 1000)) &&
+                       ((ret = CheckReadyCondition(httpContext)) == 0))
+                {
+                    //Console.WriteLine("[Environment.TickCount]:{0}", Environment.TickCount);
+                    //Console.WriteLine("[TickCount - startTick]:{0}", Environment.TickCount - startTick);
+
+                    System.Threading.Thread.Sleep(10);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("[startTick]:{0}", startTick);
+                Console.WriteLine("[Environment.TickCount]:{0}", Environment.TickCount);
+                Console.WriteLine("[TickCount - startTick]:{0}", Environment.TickCount - startTick);
+                Console.WriteLine("ret: {0}", ret);
+
+                listHttpContext.Remove(httpContext);
+
+                if (ret == 1)
+                {
+                    return Dequeue();
+                } else if (ret == 2)
+                {
+                    return DequeueDlq();
+                } else
+                {
+                    return null;
+                }
+            } else
+            {
+                return Dequeue();
+            }
+        }
+
         public void MoveToDlq(Message msg)
         {
+            muListMsg.WaitOne();
             mListMsg.Remove(msg);
+            muListMsg.ReleaseMutex();
+
             mListMsgDlq.Add(msg);
         }
 
@@ -176,7 +276,10 @@ namespace SP_TEST
             {
                 msg.DeleteTimer();
             }
+
+            muListMsg.WaitOne();
             mListMsg.Remove(msg);
+            muListMsg.ReleaseMutex();
         }
 
         public void Fail(String msgId)
